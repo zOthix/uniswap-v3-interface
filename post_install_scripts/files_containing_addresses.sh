@@ -37,8 +37,6 @@ FILES=(
     "./node_modules/@uniswap/v3-sdk/dist/v3-sdk.cjs.development.js.map"
     "./node_modules/@uniswap/v3-sdk/dist/v3-sdk.esm.js.map"
     "./node_modules/@uniswap/v3-sdk/dist/v3-sdk.cjs.production.min.js.map"
-    "./node_modules/wallet/src/constants/tokens.ts"
-    "./node_modules/wallet/src/constants/chains.ts"
     "./apps/web/src/state/migrations/3.ts"
     "./apps/web/src/state/migrations/3.test.ts"
     "./apps/web/src/hooks/useFilterPossiblyMaliciousPositions.test.ts"

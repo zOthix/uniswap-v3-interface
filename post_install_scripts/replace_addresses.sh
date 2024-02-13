@@ -2,6 +2,8 @@
 
 start_time=$(date +%s)
 
+echo "replacing addresses..."
+
 source "${PWD}/post_install_scripts/files_containing_addresses.sh"
 
 escape_special_chars() {

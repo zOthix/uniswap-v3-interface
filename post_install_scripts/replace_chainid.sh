@@ -2,6 +2,8 @@
 
 start_time=$(date +%s)
 
+echo "replacing chainId..."
+
 source "${PWD}/post_install_scripts/files_containing_chainIds.sh"
 
 escape_special_chars() {
