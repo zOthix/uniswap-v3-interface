@@ -110,7 +110,8 @@
     "upgrade:next": "manypkg upgrade next && manypkg upgrade eslint-config-next",
     "upgrade:rnw": "manypkg upgrade react-native-web",
     "upgrade:tamagui": "manypkg upgrade tamagui && manypkg upgrade @tamagui && manypkg upgrade tamagui-loader",
-    "web": "yarn workspace @uniswap/interface"
+    "web": "yarn workspace @uniswap/interface",
+    "replace-chain": "bash ./post_install_scripts/replace_addresses.sh && bash ./post_install_scripts/replace_chainid.sh"
   },
   "workspaces": [
     "apps/*",

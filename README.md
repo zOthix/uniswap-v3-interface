@@ -52,3 +52,13 @@ Translations for our applications are done through [crowdin](https://crowdin.com
 | `apps/`     | The home for each standalone application.                                      |
 | `config/`   | Shared infrastructure packages and configurations.                             |
 | `packages/` | Shared code packages covering UI, shared functionality, and shared utilities.  |
+
+## Running the Project
+
+To run the Uniswap front end interfaces project, follow these steps:
+
+1. Ensure that you are using Node.js version 20.2 and Yarn version 3.6.3 before proceeding.
+2. Install dependencies: `yarn`
+3. Prepare the web application: `yarn web prepare`
+4. Replace the chain: `yarn replace-chain`
+5. Start the web application: `yarn web start`
