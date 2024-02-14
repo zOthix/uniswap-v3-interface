@@ -95,14 +95,23 @@ export const ButtonPrimary = styled(BaseButton)`
     border: 1px solid transparent;
     outline: none;
   }
+
+  background: #6E42CA;
+  :hover {
+    background-color: #6d42cab3;
+  }
+
 `
 
 export const SmallButtonPrimary = styled(ButtonPrimary)`
   width: auto;
   font-size: 16px;
   padding: ${({ padding }) => padding ?? '8px 12px'};
-
+  background: #6E42CA;
   border-radius: 12px;
+  :hover {
+    background-color: #6d42cab3;
+  }
 `
 
 const BaseButtonLight = styled(BaseButton)`
