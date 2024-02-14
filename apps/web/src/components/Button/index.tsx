@@ -42,6 +42,7 @@ export const BaseButton = styled(RebassButton)<BaseButtonProps>`
   color: ${({ theme }) => theme.neutral1};
   text-decoration: none;
   display: flex;
+  
   justify-content: center;
   flex-wrap: nowrap;
   align-items: center;
