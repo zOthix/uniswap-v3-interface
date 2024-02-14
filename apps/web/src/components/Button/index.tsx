@@ -99,8 +99,6 @@ export const ButtonPrimary = styled(BaseButton)`
   background: #6E42CA;
   &:hover ,  &:active , &:focus {
     background-color: #6d42cab3 !important;
-    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, "#6E42CA")};
-    border: 1px solid "#6E42CA";
   }
 
 `
