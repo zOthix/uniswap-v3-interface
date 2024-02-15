@@ -194,7 +194,7 @@ export const lightTheme: ThemeColors = {
   surface4: colors.surface4_light,
   surface5: colors.surface5_light,
 
-  accent1: "#FFFFF",
+  accent1: "#FFFFFF",
   accent2:"#6E42CA",
   accent3: colors.accent3_light,
 

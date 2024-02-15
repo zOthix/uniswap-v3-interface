@@ -218,7 +218,7 @@ export const vars = createGlobalTheme(':root', {
     neutral2_light: '#7D7D7D',
     neutral3_light: '#CECECE',
     surface1_light: '#FFFFFF',
-    surface2_light: '#F9F9F9',
+    surface2_light: '#14142F',
     surface3_light: '#2222220d',
     surface4_light: '#ffffffa3',
     surface5_light: '#0000000a',
