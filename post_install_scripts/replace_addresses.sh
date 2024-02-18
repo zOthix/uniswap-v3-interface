@@ -75,6 +75,11 @@ for FILE in "${FILES[@]}"; do
     "$FILE"
 done
 
+BASEURL_="https://api.uniswap.org/v1/"
+BASEURL="https://q80a8rx8l9.execute-api.eu-west-1.amazonaws.com/prod/"
+FILE_PATH="src/state/routing/slice.ts"
+# replace base URL
+sed -i "s|$(escape_special_chars "$BASEURL_")|$BASEURL|gi" "$FILE_PATH"
 end_time=$(date +%s)
 time_taken=$((end_time - start_time))
 echo "Time taken: $time_taken seconds"
