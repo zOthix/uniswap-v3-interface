@@ -1,5 +1,4 @@
 FILES=(
-    "./.git/objects/pack/pack-c79f0d978557765e53f2e7d3fda4d939396eba72.pack"
     "./node_modules/@uniswap/redux-multicall/dist/redux-multicall.cjs.development.js"
     "./node_modules/@uniswap/redux-multicall/dist/redux-multicall.cjs.production.min.js"
     "./node_modules/@uniswap/redux-multicall/dist/redux-multicall.esm.js"
