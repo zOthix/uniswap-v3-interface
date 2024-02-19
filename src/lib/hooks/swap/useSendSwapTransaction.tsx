@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { JsonRpcProvider, TransactionResponse } from '@ethersproject/providers'
 // eslint-disable-next-line no-restricted-imports
-import { t } from '@lingui/macro'
+import { t, Trans } from '@lingui/macro'
 import { Trade } from '@uniswap/router-sdk'
 import { Currency, TradeType } from '@uniswap/sdk-core'
 import { Trade as V2Trade } from '@uniswap/v2-sdk'
@@ -64,33 +64,28 @@ export default function useSendSwapTransaction(
                     value,
                   }
 
-            return {
-              call,
-              gasEstimate: BigNumber.from(55000),
-            }
+            return library
+              .estimateGas(tx)
+              .then((gasEstimate) => {
+                return {
+                  call,
+                  gasEstimate,
+                }
+              })
+              .catch((gasError) => {
+                console.debug('Gas estimate failed, trying eth_call to extract error', call)
 
-            // return library
-            //   .estimateGas(tx)
-            //   .then((gasEstimate) => {
-            //     return {
-            //       call,
-            //       gasEstimate,
-            //     }
-            //   })
-            //   .catch((gasError) => {
-            //     console.debug('Gas estimate failed, trying eth_call to extract error', call)
-
-            //     return library
-            //       .call(tx)
-            //       .then((result) => {
-            //         console.debug('Unexpected successful call after failed estimate gas', call, gasError, result)
-            //         return { call, error: <Trans>Unexpected issue with estimating the gas. Please try again.</Trans> }
-            //       })
-            //       .catch((callError) => {
-            //         console.debug('Call threw error', call, callError)
-            //         return { call, error: swapErrorToUserReadableMessage(callError) }
-            //       })
-            //   })
+                return library
+                  .call(tx)
+                  .then((result) => {
+                    console.debug('Unexpected successful call after failed estimate gas', call, gasError, result)
+                    return { call, error: <Trans>Unexpected issue with estimating the gas. Please try again.</Trans> }
+                  })
+                  .catch((callError) => {
+                    console.debug('Call threw error', call, callError)
+                    return { call, error: swapErrorToUserReadableMessage(callError) }
+                  })
+              })
           })
         )
 
