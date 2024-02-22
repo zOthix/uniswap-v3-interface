@@ -132,7 +132,7 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   background-color: ${({ theme }) => theme.primary5};
   border: none;
   border-radius: 12px;
-  color: ${({ theme }) => theme.primary1};
+  color: ${({ theme }) => theme.text1};
   cursor: pointer;
   font-size: 11px;
   font-weight: 500;

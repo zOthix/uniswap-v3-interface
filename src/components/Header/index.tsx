@@ -268,14 +268,14 @@ export default function Header() {
   const {
     infoLink,
     nativeCurrency: { symbol: nativeCurrencySymbol },
-  } = CHAIN_INFO[!chainId || !chainAllowed ? SupportedChainId.MAINNET : chainId]
+  } = CHAIN_INFO[!chainId || !chainAllowed ? SupportedChainId.OPTIMISM : chainId]
 
   return (
-    <HeaderFrame showBackground={scrollY > 45}>
+    <HeaderFrame className="header-frame" showBackground={scrollY > 45}>
       <ClaimModal />
       <Title href=".">
         <UniIcon>
-          <Logo fill={darkMode ? white : black} width="24px" height="100%" title="logo" />
+          <Logo fill={darkMode ? white : black} width="55px" height="100%" title="logo" />
           <HolidayOrnament />
         </UniIcon>
       </Title>
@@ -296,15 +296,6 @@ export default function Header() {
         >
           <Trans>Pool</Trans>
         </StyledNavLink>
-        {(!chainId || chainId === SupportedChainId.MAINNET) && (
-          <StyledNavLink id={`vote-nav-link`} to={'/vote'}>
-            <Trans>Vote</Trans>
-          </StyledNavLink>
-        )}
-        <StyledExternalLink id={`charts-nav-link`} href={infoLink}>
-          <Trans>Charts</Trans>
-          <sup>↗</sup>
-        </StyledExternalLink>
       </HeaderLinks>
 
       <HeaderControls>
