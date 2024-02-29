@@ -10,44 +10,72 @@ escape_special_chars() {
     echo "$1" | sed 's/[^^]/[&]/g; s/\^/\\^/g'
 }
 
-PATTERN_1_="'10': { isActive"
-PATTERN_2_="chainId: 10,"
-PATTERN_3_="chain_10"
-PATTERN_4_="[\"OPTIMISM\"] = 10]"
-PATTERN_5_="OPTIMISM = 10,"
-PATTERN_6_="\"10\": {"
-PATTERN_7_="_WETH[10]"
-PATTERN_8_="[10]: new"
-PATTERN_9_="[10]=new"
-PATTERN_10_="_CHAIN_CONFIGS[10]"
-PATTERN_11_="[10]: {"
-PATTERN_12_="Token(10,"
-PATTERN_13_="OPTIMISM=10]"
-PATTERN_14_="10?: {"
-PATTERN_15_="case 10:"
-PATTERN_16_="chainId:10"
-PATTERN_17_="id: 10,"
-PATTERN_18_="NUMBER_10"
+PATTERN_0_="11155420"
+PATTERN_0="1119991"
 
-PATTERN_1="'11155420': { isActive"
-PATTERN_2="chainId: 11155420,"
-PATTERN_3="chain_11155420"
-PATTERN_4="[\"OPTIMISM\"] = 11155420]"
-PATTERN_5="OPTIMISM = 11155420,"
-PATTERN_6="\"11155420\": {"
-PATTERN_7="_WETH[11155420]"
-PATTERN_8="[11155420]: new"
-PATTERN_9="[11155420]=new"
-PATTERN_10="_CHAIN_CONFIGS[11155420]"
-PATTERN_11="[11155420]: {"
-PATTERN_12="Token(11155420,"
-PATTERN_13="OPTIMISM=11155420]"
-PATTERN_14="11155420?: {"
-PATTERN_15="case 11155420:"
-PATTERN_16="chainId:11155420"
-PATTERN_17="id: 11155420,"
-PATTERN_18="NUMBER_11155420"
+for FILE in "${FILES_CONTAINING_11155420[@]}"; do
+    sed -i \
+    -e "s|$(escape_special_chars "$PATTERN_0_")|$PATTERN_0|gi" \
+    "$FILE"
+done
 
+CHAIN_ID_=10
+PATTERN_1_="'$CHAIN_ID_': { isActive"
+PATTERN_2_="chainId: $CHAIN_ID_,"
+PATTERN_3_="chain_$CHAIN_ID_"
+PATTERN_4_="[\"OPTIMISM\"] = $CHAIN_ID_]"
+PATTERN_5_="OPTIMISM = $CHAIN_ID_,"
+PATTERN_6_="\"$CHAIN_ID_\": {"
+PATTERN_7_="_WETH[$CHAIN_ID_]"
+PATTERN_8_="[$CHAIN_ID_]: new"
+PATTERN_9_="[$CHAIN_ID_]=new"
+PATTERN_10_="_CHAIN_CONFIGS[$CHAIN_ID_]"
+PATTERN_11_="[$CHAIN_ID_]: {"
+PATTERN_12_="Token($CHAIN_ID_,"
+PATTERN_13_="OPTIMISM=$CHAIN_ID_]"
+PATTERN_14_="$CHAIN_ID_?: {"
+PATTERN_15_="case $CHAIN_ID_:"
+PATTERN_16_="chainId:$CHAIN_ID_"
+PATTERN_17_="id: $CHAIN_ID_,"
+PATTERN_18_="NUMBER_$CHAIN_ID_"
+PATTERN_19_="networkId: $CHAIN_ID_,"
+PATTERN_20_="WEB3_RPC_$CHAIN_ID_"
+PATTERN_21_="JSON_RPC_PROVIDER_$CHAIN_ID_"
+PATTERN_23_="OPTIMISM = $CHAIN_ID_]"
+PATTERN_24_="[$CHAIN_ID_]: new Token($CHAIN_ID_,"
+PATTERN_25_="pe[$CHAIN_ID_] = new le($CHAIN_ID_,"
+PATTERN_26_="[$CHAIN_ID_]={"
+PATTERN_27_="$CHAIN_ID_: '0"
+PATTERN_28_="$CHAIN_ID_:\"0"
+
+CHAIN_ID=11155420
+PATTERN_1="'$CHAIN_ID': { isActive"
+PATTERN_2="chainId: $CHAIN_ID,"
+PATTERN_3="chain_$CHAIN_ID"
+PATTERN_4="[\"OPTIMISM\"] = $CHAIN_ID]"
+PATTERN_5="OPTIMISM = $CHAIN_ID,"
+PATTERN_6="\"$CHAIN_ID\": {"
+PATTERN_7="_WETH[$CHAIN_ID]"
+PATTERN_8="[$CHAIN_ID]: new"
+PATTERN_9="[$CHAIN_ID]=new"
+PATTERN_10="_CHAIN_CONFIGS[$CHAIN_ID]"
+PATTERN_11="[$CHAIN_ID]: {"
+PATTERN_12="Token($CHAIN_ID,"
+PATTERN_13="OPTIMISM=$CHAIN_ID]"
+PATTERN_14="$CHAIN_ID?: {"
+PATTERN_15="case $CHAIN_ID:"
+PATTERN_16="chainId:$CHAIN_ID"
+PATTERN_17="id: $CHAIN_ID,"
+PATTERN_18="NUMBER_$CHAIN_ID"
+PATTERN_19="networkId: $CHAIN_ID,"
+PATTERN_20="WEB3_RPC_$CHAIN_ID"
+PATTERN_21="JSON_RPC_PROVIDER_$CHAIN_ID"
+PATTERN_23="OPTIMISM = $CHAIN_ID]"
+PATTERN_24="[$CHAIN_ID]: new Token($CHAIN_ID,"
+PATTERN_25="pe[$CHAIN_ID] = new le($CHAIN_ID,"
+PATTERN_26="[$CHAIN_ID]={"
+PATTERN_27="$CHAIN_ID: '0"
+PATTERN_28="$CHAIN_ID:\"0"
 
 for FILE in "${FILES[@]}"; do
     sed -i \
@@ -69,6 +97,15 @@ for FILE in "${FILES[@]}"; do
     -e "s|$(escape_special_chars "$PATTERN_16_")|$PATTERN_16|gi" \
     -e "s|$(escape_special_chars "$PATTERN_17_")|$PATTERN_17|gi" \
     -e "s|$(escape_special_chars "$PATTERN_18_")|$PATTERN_18|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_19_")|$PATTERN_19|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_20_")|$PATTERN_20|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_21_")|$PATTERN_21|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_23_")|$PATTERN_23|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_24_")|$PATTERN_24|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_25_")|$PATTERN_25|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_26_")|$PATTERN_26|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_27_")|$PATTERN_27|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_28_")|$PATTERN_28|gi" \
     "$FILE"
 done
 

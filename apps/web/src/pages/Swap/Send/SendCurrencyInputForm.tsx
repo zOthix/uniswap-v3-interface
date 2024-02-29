@@ -204,7 +204,7 @@ export default function SendCurrencyInputForm({
   const showMaxButton = Boolean(maxInputAmount?.greaterThan(0) && !parsedTokenAmount?.equalTo(maxInputAmount))
 
   const [tokenSelectorOpen, setTokenSelectorOpen] = useState(false)
-  const fiatCurrency = useMemo(() => STABLECOIN_AMOUNT_OUT[chainId ?? ChainId.MAINNET].currency, [chainId])
+  const fiatCurrency = useMemo(() => STABLECOIN_AMOUNT_OUT[chainId ?? ChainId.OPTIMISM].currency, [chainId])
   const fiatCurrencyEqualsTransferCurrency = !!inputCurrency && fiatCurrency.equals(inputCurrency)
 
   const formattedBalance = formatCurrencyAmount({

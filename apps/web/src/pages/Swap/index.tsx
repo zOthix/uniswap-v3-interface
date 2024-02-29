@@ -60,7 +60,7 @@ export default function SwapPage({ className }: { className?: string }) {
         <Swap
           className={className}
           chainId={chainId}
-          disableTokenInputs={supportedChainId === undefined}
+          disableTokenInputs={chainId != ChainId.OPTIMISM }
           initialInputCurrency={initialInputCurrency}
           initialOutputCurrency={initialOutputCurrency}
         />

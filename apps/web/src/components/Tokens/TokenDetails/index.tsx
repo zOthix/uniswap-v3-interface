@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro'
 import { InterfacePageName } from '@uniswap/analytics-events'
-import { Currency } from '@uniswap/sdk-core'
+import { ChainId, Currency } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { Trace } from 'analytics'
 import { PortfolioLogo } from 'components/AccountDrawer/MiniPortfolio/PortfolioLogo'
@@ -399,7 +399,7 @@ export default function TokenDetails({
               initialInputCurrency={inputCurrency}
               initialOutputCurrency={outputCurrency}
               onCurrencyChange={handleCurrencyChange}
-              disableTokenInputs={pageChainId !== connectedChainId}
+              disableTokenInputs={pageChainId !== connectedChainId && connectedChainId != ChainId.OPTIMISM}
             />
           </div>
           {tokenWarning && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}

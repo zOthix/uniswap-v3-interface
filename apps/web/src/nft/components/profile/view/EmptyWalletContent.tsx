@@ -30,9 +30,9 @@ const EmptyWalletSubtitle = styled(ThemedText.BodySmall)`
 `
 
 const ActionButton = styled.button`
-  background-color: ${({ theme }) => theme.accent1};
+  background-color: ${({ theme }) => theme.accent3};
   padding: 10px 24px;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.surface1};
   width: min-content;
   border: none;
   outline: none;
