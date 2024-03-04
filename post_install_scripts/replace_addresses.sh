@@ -32,6 +32,7 @@ RPC_URL_="https://mainnet.optimism.io"
 RPC_URL2_="https://rpc.ankr.com/optimism"
 SCAN_URL_="https://optimistic.etherscan.io"
 SOURCE_MAP_PATTERN_="let mappingsWasmUrl = null"
+REDIRECT_TO_EXPLORER_URL_="https://sepolia-optimism.etherscan.io"
 
 # ADDRESSES TO REPLACE WITH
 WETH_ADDRESS="0x8A7B847852f70c31B240D3E5aA2a1a8506C95494"
@@ -77,6 +78,7 @@ for FILE in "${FILES[@]}"; do
     -e "s|$(escape_special_chars "$RPC_URL2_")|$RPC_URL|gi" \
     -e "s|$(escape_special_chars "$SCAN_URL_")|$SCAN_URL|gi" \
     -e "s|$(escape_special_chars "$SOURCE_MAP_PATTERN_")|$SOURCE_MAP_PATTERN|gi" \
+    -e "s|$(escape_special_chars "$REDIRECT_TO_EXPLORER_URL_")|$SCAN_URL|gi" \
     "$FILE"
 done
 

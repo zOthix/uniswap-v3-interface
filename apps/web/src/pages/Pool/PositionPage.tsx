@@ -2,7 +2,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
 import { t, Trans } from '@lingui/macro'
 import { InterfacePageName, LiquidityEventName, LiquiditySource } from '@uniswap/analytics-events'
-import { Currency, CurrencyAmount, Fraction, Percent, Price, Token } from '@uniswap/sdk-core'
+import { ChainId, Currency, CurrencyAmount, Fraction, Percent, Price, Token } from '@uniswap/sdk-core'
 import { NonfungiblePositionManager, Pool, Position } from '@uniswap/v3-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { sendAnalyticsEvent, Trace } from 'analytics'
@@ -220,8 +220,12 @@ const TokenLink = ({
   address,
 }: PropsWithChildren<{ chainId: keyof typeof CHAIN_IDS_TO_NAMES; address: string }>) => {
   const isInfoExplorePageEnabled = useInfoExplorePageEnabled()
-  const tokenLink = getTokenDetailsURL({ address, chain: chainIdToBackendName(chainId), isInfoExplorePageEnabled })
-  return <StyledRouterLink to={tokenLink}>{children}</StyledRouterLink>
+  let tokenLink;
+  if(chainId === ChainId.OPTIMISM)
+    tokenLink = `https://sepolia-optimism.etherscan.io/address/${address}`;
+  else
+    tokenLink = getTokenDetailsURL({ address, chain: chainIdToBackendName(chainId), isInfoExplorePageEnabled })
+  return <StyledRouterLink target='_blank' to={tokenLink}>{children}</StyledRouterLink>
 }
 
 const ExternalTokenLink = ({ children, chainId, address }: PropsWithChildren<{ chainId: number; address: string }>) => {
