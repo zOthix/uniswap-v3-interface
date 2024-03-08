@@ -38,7 +38,7 @@ FILES=(
     "./node_modules/@uniswap/v3-sdk/dist/v3-sdk.esm.js.map"
     "./node_modules/@uniswap/v3-sdk/dist/v3-sdk.cjs.production.min.js.map"
     "./apps/web/src/state/migrations/3.ts"
-    "./apps/web/src/constants/chainInfo.ts",
+    "./apps/web/src/constants/chainInfo.ts"
     "./apps/web/src/state/migrations/3.test.ts"
     "./apps/web/src/hooks/useFilterPossiblyMaliciousPositions.test.ts"
     "./apps/web/src/graphql/thegraph/apollo.ts"

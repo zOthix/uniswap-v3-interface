@@ -135,9 +135,10 @@ export const routingApi = createApi({
             configs: getRoutingAPIConfig(args),
           }
 
+          const baseURL = UNISWAP_API_URL
           let response = await fetch({
             method: 'GET',
-            url: `https://q80a8rx8l9.execute-api.eu-west-1.amazonaws.com/prod/quote?tokenInAddress=${tokenIn}&tokenInChainId=${tokenInChainId}&tokenOutAddress=${tokenOut}&tokenOutChainId=${tokenOutChainId}&amount=${amount}&type=exactIn`,
+            url: `${baseURL}/quote?tokenInAddress=${tokenIn}&tokenInChainId=${tokenInChainId}&tokenOutAddress=${tokenOut}&tokenOutChainId=${tokenOutChainId}&amount=${amount}&type=exactIn`,
           })
 
           if (response.error) {
