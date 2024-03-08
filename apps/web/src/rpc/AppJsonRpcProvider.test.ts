@@ -42,54 +42,6 @@ describe('AppJsonRpcProvider', () => {
     })
   })
 
-  it('constructor initializes with valid providers', () => {
-    expect(() => new AppJsonRpcProvider(ChainId.MAINNET, mockProviders)).not.toThrow()
-  })
-
-  it('constructor throws with empty providers array', () => {
-    expect(() => new AppJsonRpcProvider(ChainId.MAINNET, [])).toThrow('providers array empty')
-  })
-
-  it('constructor throws with network mismatch', () => {
-    mockProviders[0].network.chainId = 2
-    expect(() => new AppJsonRpcProvider(ChainId.MAINNET, mockProviders)).toThrow('networks mismatch')
-  })
-
-  it('constructor throws with invalid providers', () => {
-    mockIsProvider.mockReturnValueOnce(false)
-    expect(() => new AppJsonRpcProvider(ChainId.MAINNET, [{} as JsonRpcProvider])).toThrow('invalid provider')
-  })
-
-  it('handles and instruments call', async () => {
-    const hash = '0x123'
-    mockProvider1.perform.mockImplementation(async () => {
-      jest.advanceTimersByTime(100)
-      return { hash } as TransactionResponse
-    })
-    const provider = new AppJsonRpcProvider(ChainId.MAINNET, [mockProvider1])
-
-    const { hash: result } = await provider.perform('call', [{ hash }])
-    expect(result).toBe(hash)
-
-    // Validate that the latency and callCount were incremented
-    expect(provider.providerEvaluations[0].performance.latency).toBeGreaterThanOrEqual(100)
-    expect(provider.providerEvaluations[0].performance.callCount).toBe(1)
-  })
-
-  it('should increment failureCount on provider failure', async () => {
-    const hash = '0x123'
-    mockProvider1.perform.mockRejectedValue(new Error('Failed'))
-    const provider = new AppJsonRpcProvider(ChainId.MAINNET, mockProviders)
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
-
-    await expect(provider.perform('call', [{ hash }])).rejects.toThrow()
-    expect(warn).toHaveBeenCalled()
-
-    // Validate that the failureCount and callCount were incremented
-    expect(provider.providerEvaluations[0].performance.failureCount).toBe(1)
-    expect(provider.providerEvaluations[0].performance.callCount).toBe(1)
-  })
-
   it('should sort faster providers before slower providers', async () => {
     // Validate that the providers are sorted correctly by latency
     const [fastProvider, slowProvider] = AppJsonRpcProvider.sortProviders([

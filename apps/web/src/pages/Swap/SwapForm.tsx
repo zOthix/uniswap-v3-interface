@@ -7,7 +7,7 @@ import {
   SharedEventName,
   SwapEventName,
 } from '@uniswap/analytics-events'
-import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { ChainId, Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { UNIVERSAL_ROUTER_ADDRESS } from '@uniswap/universal-router-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { sendAnalyticsEvent, Trace, TraceEvent, useTrace } from 'analytics'
@@ -637,12 +637,12 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
                 <Trans>Connect wallet</Trans>
               </ButtonLight>
             </TraceEvent>
-          ) : chainId && chainId !== connectedChainId ? (
+          ) : chainId != ChainId.OPTIMISM && ChainId.OPTIMISM != connectedChainId ? (
             <ButtonPrimary
               $borderRadius="16px"
               onClick={async () => {
                 try {
-                  await switchChain(connector, chainId)
+                  await switchChain(connector, ChainId.OPTIMISM)
                 } catch (error) {
                   if (didUserReject(error)) {
                     // Ignore error, which keeps the user on the previous chain.
@@ -653,7 +653,7 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
                 }
               }}
             >
-              Connect to {getChainInfo(chainId)?.label}
+              Connect to {getChainInfo(ChainId.OPTIMISM)?.label}
             </ButtonPrimary>
           ) : showWrap ? (
             <ButtonPrimary

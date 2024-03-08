@@ -166,7 +166,12 @@ function Web3StatusInner() {
   const isConnectionInitializing = Boolean(
     initialConnection.current?.address === account && initialConnection.current?.ENSName && ENSLoading
   )
+  console.log("connectionReady ...", connectionReady);
+  console.log("isConnectionInitializing ...", isConnectionInitializing);
+
   const isConnectionInitialized = connectionReady && !isConnectionInitializing
+  console.log("isConnectionInitialized ...", isConnectionInitialized);
+
   // Clear the initial connection once initialized so it does not interfere with subsequent connections.
   useEffect(() => {
     if (isConnectionInitialized) {

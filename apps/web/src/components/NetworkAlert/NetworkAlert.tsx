@@ -52,19 +52,19 @@ export function NetworkAlert() {
   if (!chainId || !isSupportedChain(chainId)) return null
 
   const { Symbol: ChainSymbol, bgColor, textColor } = getChainUI(chainId, darkMode)
-  const { label, bridge } = getChainInfo(chainId)
+  const chainInfo = getChainInfo(chainId)
 
-  return bridge ? (
-    <BridgeLink href={bridge} bgColor={bgColor}>
+  return chainInfo?.bridge ? (
+    <BridgeLink href={chainInfo?.bridge} bgColor={bgColor}>
       <ChainSymbol width={40} height={40} stroke="none" />
       <RowBetween>
         <Column>
           <TitleText $color={textColor}>
-            <Trans>{label} token bridge</Trans>
+            <Trans>{chainInfo?.label} token bridge</Trans>
           </TitleText>
           <HideSmall>
             <SubtitleText $color={textColor}>
-              <Trans>Deposit tokens to the {label} network.</Trans>
+              <Trans>Deposit tokens to the {chainInfo?.label} network.</Trans>
             </SubtitleText>
           </HideSmall>
         </Column>

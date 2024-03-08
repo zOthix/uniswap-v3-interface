@@ -1,64 +1,96 @@
-# Uniswap Labs: Front End Interfaces
+# UniswapV3 Interface Customization Documentation
 
-An open source repository for all Uniswap front end interfaces maintained by Uniswap Labs. Uniswap is a protocol for decentralized exchange of Ethereum tokens.
+This documentation provides step-by-step instructions on how to customize and run the UniswapV3 Interface for a specific blockchain network. The process involves replacing contract addresses and chain IDs to match the target blockchain.
 
-## Interfaces
+## Prerequisites
 
-- Web: [app.uniswap.org](https://app.uniswap.org)
-- Wallet: [wallet.uniswap.org](https://wallet.uniswap.org)
+- Node.js and npm must be installed on your system.
+- Yarn package manager must be installed on your system.
 
-## Socials / Contact
+## Setup Instructions
 
-- Twitter: [@Uniswap](https://twitter.com/Uniswap)
-- Reddit: [/r/Uniswap](https://www.reddit.com/r/Uniswap/)
-- Email: [contact@uniswap.org](mailto:contact@uniswap.org)
-- Discord: [Uniswap](https://discord.gg/FCfyBSbCU5)
+1. **Environment Setup**
 
-## Uniswap Links
+   Begin by cloning the repository.
 
-- Website: [uniswap.org](https://uniswap.org/)
-- Docs: [uniswap.org/docs/](https://docs.uniswap.org/)
+2. **Replace Contract Addresses**
 
-## Whitepapers
+   Modify the `replace_addresses.sh` script located in the post_install_scripts directory. Replace the placeholder contract addresses mentioned below with the deployed contract addresses for your target blockchain.
 
-- [V3](https://uniswap.org/whitepaper-v3.pdf)
-- [V2](https://uniswap.org/whitepaper.pdf)
-- [V1](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
+   ```shell
+   # ADDRESSES TO REPLACE WITH
+   WETH_ADDRESS=""
+   USDC_ADDRESS=""
+   USDT_ADDRESS=""
+   WBTC_ADDRESS=""
+   DAI_ADDRESS=""
+   FACTORY_ADDRESS=""
+   SWAP_ROUTER_ADDRESS=""
+   NFT_DESCRIPTOR_ADDRESS=""
+   POSITION_DESCRIPTOR_ADDRESS=""
+   POSITION_MANAGER_ADDRESS=""
+   MULTICALL_ADDRESS=""
+   QUOTER_ADDRESS=""
+   V3_MIGRATOR_ADDRESS=""
+   TICK_LENS_ADDRESS=""
+   SUBGRAPH_URL=""
+   RPC_URL=""
+   SCAN_URL=""
+   UNIVERSAL_ROUTER_ADDRESS=""
+   ```
 
-## Apps
+3. **Replace Chain ID**
 
-For instructions per application or package, see the README published for each application:
+   Modify the `replace_chainid.sh` script located in the post_install_scripts directory. Add the chain id in `CHAIN_ID` of your target blockchain.
 
-- [Web](apps/web/README.md)
-- [Mobile](apps/mobile/README.md)
+   ```shell
+   CHAIN_ID=
+   ```
 
-## Releases
+4. **Install dependencies**
 
-All interface releases are tagged and published to this repository. To browse them easily, see the [Github releases tab](https://github.com/Uniswap/interface/releases).
+   Run the following command to install project dependencies:
 
-## Translations
+   ```shell
+   yarn
+   ```
 
-Translations for our applications are done through [crowdin](https://crowdin.com).
+5. **Run post install scripts**
 
-| App     | Coverage |
-| ------- | -------- |
-| web     | [![Crowdin](https://badges.crowdin.net/uniswap-interface/localized.svg)](https://crowdin.com/project/uniswap-interface) |
-| mobile  | [![Crowdin](https://badges.crowdin.net/uniswap-wallet/localized.svg)](https://crowdin.com/project/uniswap-wallet) |
+   Run the following command to  execute post-install scripts to replace addresses and chain ID:
 
-## 🗂 Directory Structure
+   ```shell
+   yarn replace-chain
+   ```
 
-| Folder      | Contents                                                                       |
-| ----------- | ------------------------------------------------------------------------------ |
-| `apps/`     | The home for each standalone application.                                      |
-| `config/`   | Shared infrastructure packages and configurations.                             |
-| `packages/` | Shared code packages covering UI, shared functionality, and shared utilities.  |
+6. **Prepare Project**
 
-## Running the Project
+   ```shell
+   yarn web prepare
+   ```
 
-To run the Uniswap front end interfaces project, follow these steps:
+7. **Start Project**
 
-1. Ensure that you are using Node.js version 20.2 and Yarn version 3.6.3 before proceeding.
-2. Install dependencies: `yarn`
-3. Prepare the web application: `yarn web prepare`
-4. Replace the chain: `yarn replace-chain`
-5. Start the web application: `yarn web start`
+   **For Development**
+
+   ```shell
+   yarn web start
+   ```
+
+   **For Production**
+
+   ```shell
+   yarn web build:production
+   yarn web serve
+   ```
+
+### Tested Environment
+
+This customization has been tested for `Optimism Sepolia (L2)` network using the following environment:
+
+- Node.js version: 20.2
+- Yarn version: 3.6.3
+
+### Conclusion
+
+By following these steps, you should be able to customize and run the UniswapV3 Interface project for your blockchain network. This enables you to leverage Uniswap's decentralized exchange functionality within your custom environment.

@@ -35,7 +35,7 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
   }
 }
 
-export function getNativeLogoURI(chainId: ChainId = ChainId.MAINNET): string {
+export function getNativeLogoURI(chainId: ChainId = ChainId.OPTIMISM): string {
   switch (chainId) {
     case ChainId.POLYGON:
     case ChainId.POLYGON_MUMBAI:
@@ -52,7 +52,7 @@ export function getNativeLogoURI(chainId: ChainId = ChainId.MAINNET): string {
   }
 }
 
-function getTokenLogoURI(address: string, chainId: ChainId = ChainId.MAINNET): string | void {
+function getTokenLogoURI(address: string, chainId: ChainId = ChainId.OPTIMISM): string | void {
   const networkName = chainIdToNetworkName(chainId)
   const networksWithUrls = [
     ChainId.ARBITRUM_ONE,

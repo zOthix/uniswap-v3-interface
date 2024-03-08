@@ -94,6 +94,10 @@ export const activeMenuItem = style([
   baseMenuItem,
   sprinkles({
     color: 'neutral1',
-    background: 'none',
+    background: 'accent1',
   }),
+  {':hover': {
+    color: vars.color.white,
+  }
+}
 ])

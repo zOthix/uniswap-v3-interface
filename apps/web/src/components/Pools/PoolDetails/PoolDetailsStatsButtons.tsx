@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/macro'
+import { ChainId } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { PositionInfo } from 'components/AccountDrawer/MiniPortfolio/Pools/cache'
 import useMultiChainPositions from 'components/AccountDrawer/MiniPortfolio/Pools/useMultiChainPositions'
@@ -161,7 +162,7 @@ export function PoolDetailsStatsButtons({ chainId, token0, token1, feeTier, load
           chainId={chainId}
           initialInputCurrency={currency0}
           initialOutputCurrency={currency1}
-          disableTokenInputs={chainId !== walletChainId}
+          disableTokenInputs={chainId !== walletChainId && walletChainId != ChainId.OPTIMISM}
         />
       </SwapModalWrapper>
     </Column>

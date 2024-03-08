@@ -21,6 +21,7 @@ import SendCurrencyInputForm from './SendCurrencyInputForm'
 import { SendRecipientForm } from './SendRecipientForm'
 import { SendReviewModal } from './SendReviewModal'
 import { SmartContractSpeedBumpModal } from './SmartContractSpeedBump'
+import { ChainId } from '@uniswap/sdk-core'
 
 type SendFormProps = {
   onCurrencyChange?: (selected: CurrencyState) => void
@@ -198,12 +199,12 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
               <Trans>Connect wallet</Trans>
             </ButtonLight>
           </TraceEvent>
-        ) : chainId && chainId !== connectedChainId ? (
+        ) : chainId && chainId !== connectedChainId && connectedChainId !== ChainId.OPTIMISM? (
           <ButtonPrimary
             $borderRadius="16px"
             onClick={async () => {
               try {
-                await switchChain(connector, chainId)
+                await switchChain(connector, ChainId.OPTIMISM)
               } catch (error) {
                 if (didUserReject(error)) {
                   // Ignore error, which keeps the user on the previous chain.
@@ -214,7 +215,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
               }
             }}
           >
-            <Trans>Connect to {getChainInfo(chainId)?.label}</Trans>
+            <Trans>Connect to {getChainInfo(ChainId.OPTIMISM)?.label}</Trans>
           </ButtonPrimary>
         ) : (
           <ButtonPrimary

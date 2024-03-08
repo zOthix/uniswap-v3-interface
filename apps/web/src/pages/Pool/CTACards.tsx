@@ -63,7 +63,7 @@ const ResponsiveColumn = styled(AutoColumn)`
 
 export default function CTACards() {
   const { chainId } = useWeb3React()
-  const { infoLink } = getChainInfoOrDefault(chainId)
+  const info = getChainInfoOrDefault(chainId)
 
   return (
     <CTASection>
@@ -77,7 +77,7 @@ export default function CTACards() {
           </ThemedText.DeprecatedBody>
         </ResponsiveColumn>
       </CTA>
-      <CTA data-testid="cta-infolink" href={infoLink + 'pools'}>
+      <CTA data-testid="cta-infolink" href={info?.infoLink + 'pools'}>
         <ResponsiveColumn>
           <HeaderText style={{ alignSelf: 'flex-start' }}>
             <Trans>Top pools</Trans> ↗

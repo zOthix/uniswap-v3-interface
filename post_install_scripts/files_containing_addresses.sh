@@ -47,4 +47,5 @@ FILES=(
     "./apps/web/public/tokens-sitemap.xml"
     "./packages/wallet/src/constants/tokens.ts"
     "./packages/wallet/src/constants/chains.ts"
+    "./apps/web/src/pages/Pool/PositionPage.tsx"
 )
