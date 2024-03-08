@@ -222,7 +222,7 @@ const TokenLink = ({
   const isInfoExplorePageEnabled = useInfoExplorePageEnabled()
   let tokenLink;
   if(chainId === ChainId.OPTIMISM)
-    tokenLink = `https://sepolia-optimism.etherscan.io/address/${address}`;
+    tokenLink = `https://optimistic.etherscan.io/address/${address}`;
   else
     tokenLink = getTokenDetailsURL({ address, chain: chainIdToBackendName(chainId), isInfoExplorePageEnabled })
   return <StyledRouterLink target='_blank' to={tokenLink}>{children}</StyledRouterLink>

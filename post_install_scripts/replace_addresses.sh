@@ -31,7 +31,7 @@ SUBGRAPH_URL_="https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-r
 RPC_URL_="https://mainnet.optimism.io"
 RPC_URL2_="https://rpc.ankr.com/optimism"
 SCAN_URL_="https://optimistic.etherscan.io"
-REDIRECT_TO_EXPLORER_URL_="https://sepolia-optimism.etherscan.io"
+REDIRECT_TO_EXPLORER_URL_="https://optimistic.etherscan.io"
 SOURCE_MAP_PATTERN_="let mappingsWasmUrl = null"
 
 # ADDRESSES TO REPLACE WITH
