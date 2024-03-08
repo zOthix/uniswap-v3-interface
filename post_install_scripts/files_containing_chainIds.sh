@@ -56,4 +56,5 @@ FILES=(
 "node_modules/@uniswap/smart-order-router/build/main/util/chains.js"
 "node_modules/@uniswap/smart-order-router/build/module/util/chains.js"
 "packages/wallet/src/data/tradingApi/__generated__/api.ts"
+"./node_modules/@uniswap/universal-router-sdk/dist/universal-router-sdk.cjs.production.min.js"
 )

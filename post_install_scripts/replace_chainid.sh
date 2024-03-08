@@ -38,6 +38,7 @@ PATTERN_25_="pe[$CHAIN_ID_] = new le($CHAIN_ID_,"
 PATTERN_26_="[$CHAIN_ID_]={"
 PATTERN_27_="$CHAIN_ID_: '0"
 PATTERN_28_="$CHAIN_ID_:\"0"
+PATTERN_29_="C[$CHAIN_ID_]="
 
 CHAIN_ID=
 PATTERN_1="'$CHAIN_ID': { isActive"
@@ -67,6 +68,7 @@ PATTERN_25="pe[$CHAIN_ID] = new le($CHAIN_ID,"
 PATTERN_26="[$CHAIN_ID]={"
 PATTERN_27="$CHAIN_ID: '0"
 PATTERN_28="$CHAIN_ID:\"0"
+PATTERN_29="C[$CHAIN_ID]="
 
 # Remove the chain id if it exists already
 PATTERN_0_="$CHAIN_ID"
@@ -108,6 +110,7 @@ for FILE in "${FILES[@]}"; do
     -e "s|$(escape_special_chars "$PATTERN_26_")|$PATTERN_26|gi" \
     -e "s|$(escape_special_chars "$PATTERN_27_")|$PATTERN_27|gi" \
     -e "s|$(escape_special_chars "$PATTERN_28_")|$PATTERN_28|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_29_")|$PATTERN_29|gi" \
     "$FILE"
 done
 
