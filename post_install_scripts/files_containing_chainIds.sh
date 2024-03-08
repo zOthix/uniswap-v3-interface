@@ -1,4 +1,4 @@
-FILES_CONTAINING_11155420=(
+FILES_CONTAINING_OUR_CHAIN_ID=(
   "./node_modules/viem/_cjs/chains/definitions/optimismSepolia.js"
   "./node_modules/viem/_esm/chains/definitions/optimismSepolia.js"
   "./node_modules/viem/_types/chains/definitions/optimismSepolia.d.ts"

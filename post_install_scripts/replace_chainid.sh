@@ -10,15 +10,6 @@ escape_special_chars() {
     echo "$1" | sed 's/[^^]/[&]/g; s/\^/\\^/g'
 }
 
-PATTERN_0_="11155420"
-PATTERN_0="1119991"
-
-for FILE in "${FILES_CONTAINING_11155420[@]}"; do
-    sed -i \
-    -e "s|$(escape_special_chars "$PATTERN_0_")|$PATTERN_0|gi" \
-    "$FILE"
-done
-
 CHAIN_ID_=10
 PATTERN_1_="'$CHAIN_ID_': { isActive"
 PATTERN_2_="chainId: $CHAIN_ID_,"
@@ -48,7 +39,7 @@ PATTERN_26_="[$CHAIN_ID_]={"
 PATTERN_27_="$CHAIN_ID_: '0"
 PATTERN_28_="$CHAIN_ID_:\"0"
 
-CHAIN_ID=11155420
+CHAIN_ID=
 PATTERN_1="'$CHAIN_ID': { isActive"
 PATTERN_2="chainId: $CHAIN_ID,"
 PATTERN_3="chain_$CHAIN_ID"
@@ -77,6 +68,17 @@ PATTERN_26="[$CHAIN_ID]={"
 PATTERN_27="$CHAIN_ID: '0"
 PATTERN_28="$CHAIN_ID:\"0"
 
+# Remove the chain id if it exists already
+PATTERN_0_="${CHAIN_ID}"
+PATTERN_0="1119991"
+
+for FILE in "${FILES_CONTAINING_OUR_CHAIN_ID[@]}"; do
+    sed -i \
+    -e "s|$(escape_special_chars "$PATTERN_0_")|$PATTERN_0|gi" \
+    "$FILE"
+done
+
+# Replace the OPTIMISM chain id with our chain id
 for FILE in "${FILES[@]}"; do
     sed -i \
     -e "s|$(escape_special_chars "$PATTERN_1_")|$PATTERN_1|gi" \
