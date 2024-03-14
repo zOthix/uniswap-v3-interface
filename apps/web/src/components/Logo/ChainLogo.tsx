@@ -14,6 +14,7 @@ import { ReactComponent as celoLight } from './ChainSymbols/celo_light.svg'
 import { ReactComponent as ethereum } from './ChainSymbols/ethereum.svg'
 import { ReactComponent as optimism } from './ChainSymbols/optimism.svg'
 import { ReactComponent as polygon } from './ChainSymbols/polygon.svg'
+import { themeVars } from 'nft/css/sprinkles.css'
 
 type SVG = FunctionComponent<React.SVGProps<SVGSVGElement>>
 type ChainUI = { Symbol: SVG; bgColor: string; textColor: string }
@@ -47,8 +48,8 @@ export function getChainUI(chainId: ChainId, darkMode: boolean): ChainUI | undef
     case ChainId.OPTIMISM_GOERLI:
       return {
         Symbol: optimism,
-        bgColor: '#FF042033',
-        textColor: '#FF0420',
+        bgColor: themeVars.colors.accent2,
+        textColor: '#FFFFFF',
       }
     case ChainId.CELO:
     case ChainId.CELO_ALFAJORES:

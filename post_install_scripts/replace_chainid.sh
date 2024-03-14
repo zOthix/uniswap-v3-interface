@@ -11,6 +11,8 @@ escape_special_chars() {
 }
 
 CHAIN_ID_=10
+CHAIN_NAME_="Optimism"
+CHAIN_BRIDGE_="https://app.optimism.io/bridge"
 PATTERN_1_="'$CHAIN_ID_': { isActive"
 PATTERN_2_="chainId: $CHAIN_ID_,"
 PATTERN_3_="chain_$CHAIN_ID_"
@@ -39,8 +41,13 @@ PATTERN_26_="[$CHAIN_ID_]={"
 PATTERN_27_="$CHAIN_ID_: '0"
 PATTERN_28_="$CHAIN_ID_:\"0"
 PATTERN_29_="C[$CHAIN_ID_]="
+PATTERN_30_="label: '$CHAIN_NAME_'"
+PATTERN_31_="$CHAIN_BRIDGE_"
+
 
 CHAIN_ID=
+CHAIN_NAME=""
+CHAIN_BRIDGE=""
 PATTERN_1="'$CHAIN_ID': { isActive"
 PATTERN_2="chainId: $CHAIN_ID,"
 PATTERN_3="chain_$CHAIN_ID"
@@ -69,6 +76,8 @@ PATTERN_26="[$CHAIN_ID]={"
 PATTERN_27="$CHAIN_ID: '0"
 PATTERN_28="$CHAIN_ID:\"0"
 PATTERN_29="C[$CHAIN_ID]="
+PATTERN_30="label: '$CHAIN_NAME'"
+PATTERN_31="$CHAIN_BRIDGE"
 
 # Remove the chain id if it exists already
 PATTERN_0_="$CHAIN_ID"
@@ -111,6 +120,8 @@ for FILE in "${FILES[@]}"; do
     -e "s|$(escape_special_chars "$PATTERN_27_")|$PATTERN_27|gi" \
     -e "s|$(escape_special_chars "$PATTERN_28_")|$PATTERN_28|gi" \
     -e "s|$(escape_special_chars "$PATTERN_29_")|$PATTERN_29|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_30_")|$PATTERN_30|gi" \
+    -e "s|$(escape_special_chars "$PATTERN_31_")|$PATTERN_31|gi" \
     "$FILE"
 done
 

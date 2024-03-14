@@ -12,8 +12,12 @@ This documentation provides step-by-step instructions on how to customize and ru
 1. **Environment Setup**
 
    Begin by cloning the repository.
+   
+2. **Add Chain Logo**
 
-2. **Replace Contract Addresses**
+   Place your logo as an SVG image inside the post_install_scripts directory. Ensure the filename is logo.svg.
+
+3. **Replace Contract Addresses**
 
    Modify the `replace_addresses.sh` script located in the post_install_scripts directory. Replace the placeholder contract addresses mentioned below with the deployed contract addresses for your target blockchain.
 
@@ -39,15 +43,17 @@ This documentation provides step-by-step instructions on how to customize and ru
    UNIVERSAL_ROUTER_ADDRESS=""
    ```
 
-3. **Replace Chain ID**
+4. **Replace Chain ID and Chain name**
 
    Modify the `replace_chainid.sh` script located in the post_install_scripts directory. Add the chain id in `CHAIN_ID` of your target blockchain.
 
    ```shell
    CHAIN_ID=
+   CHAIN_NAME=""
+   CHAIN_BRIDGE=""
    ```
 
-4. **Install dependencies**
+5. **Install dependencies**
 
    Run the following command to install project dependencies:
 
@@ -55,7 +61,7 @@ This documentation provides step-by-step instructions on how to customize and ru
    yarn
    ```
 
-5. **Run post install scripts**
+6. **Run post install scripts**
 
    Run the following command to  execute post-install scripts to replace addresses and chain ID:
 
@@ -63,13 +69,13 @@ This documentation provides step-by-step instructions on how to customize and ru
    yarn replace-chain
    ```
 
-6. **Prepare Project**
+7. **Prepare Project**
 
    ```shell
    yarn web prepare
    ```
 
-7. **Start Project**
+8. **Start Project**
 
    **For Development**
 

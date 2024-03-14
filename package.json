@@ -111,7 +111,7 @@
     "upgrade:rnw": "manypkg upgrade react-native-web",
     "upgrade:tamagui": "manypkg upgrade tamagui && manypkg upgrade @tamagui && manypkg upgrade tamagui-loader",
     "web": "yarn workspace @uniswap/interface",
-    "replace-chain": "bash ./post_install_scripts/replace_addresses.sh && bash ./post_install_scripts/replace_chainid.sh"
+    "replace-chain": "bash ./post_install_scripts/replace_addresses.sh && bash ./post_install_scripts/replace_chainid.sh && mv ./post_install_scripts/logo.svg ./apps/web/src/components/Logo/ChainSymbols/optimism.svg"
   },
   "workspaces": [
     "apps/*",
