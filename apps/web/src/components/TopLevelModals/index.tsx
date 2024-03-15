@@ -33,7 +33,6 @@ export default function TopLevelModals() {
       <ConnectedAccountBlocked account={account} isOpen={accountBlocked} />
       <Bag />
       <UniwalletModal />
-      <WalletAppPromoBanner />
       <OffchainActivityModal />
       <TransactionCompleteModal />
       <AirdropModal />
