@@ -45,9 +45,9 @@ PATTERN_30_="label: '$CHAIN_NAME_'"
 PATTERN_31_="$CHAIN_BRIDGE_"
 
 
-CHAIN_ID=
-CHAIN_NAME=""
-CHAIN_BRIDGE=""
+CHAIN_ID=11155420
+CHAIN_NAME="Optimism Sepolia"
+CHAIN_BRIDGE="https://app.optimism.io/bridge"
 PATTERN_1="'$CHAIN_ID': { isActive"
 PATTERN_2="chainId: $CHAIN_ID,"
 PATTERN_3="chain_$CHAIN_ID"
